@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:videostreaming_app/register.dart';
+import 'package:videostreaming_app/userHomePage.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -6,8 +8,15 @@ class MyLogin extends StatefulWidget {
   @override
   _MyLoginState createState() => _MyLoginState();
 }
-
 class _MyLoginState extends State<MyLogin> {
+
+  String userMail = 'kuntal123@gmail.com';
+  String passWord = 'myPassword';
+
+
+  TextEditingController _email = TextEditingController();
+
+  TextEditingController _password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,6 +39,7 @@ class _MyLoginState extends State<MyLogin> {
                 child: Column(
                   children: [
                     TextField(
+                      controller: _email,
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
                         filled: true,
@@ -41,6 +51,7 @@ class _MyLoginState extends State<MyLogin> {
                       height: 30,
                     ),
                     TextField(
+                      controller: _password,
                       obscureText: true,
                       decoration: InputDecoration(
                           fillColor: Colors.grey.shade100,
@@ -58,7 +69,23 @@ class _MyLoginState extends State<MyLogin> {
                         Text('Sign In', style: TextStyle(color:Color(0xff4c505b), fontSize: 27, fontWeight: FontWeight.w700),),
                         SizedBox(width: 20,),
                         CircleAvatar(radius: 30, backgroundColor: Color(0xff4c505b),
-                          child: IconButton(color: Colors.white, onPressed: (){},
+                          child: IconButton(color: Colors.white, onPressed: (){
+                            var loginEmail = _email.text;
+                            var loginPass = _password.text;
+
+                            if(loginEmail == userMail && loginPass == passWord){
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>userHomePage()));
+                            }else{
+
+                              final snackBar = SnackBar(
+                                  content: const Text('ENTER VALID INPUTS')
+                              );
+                              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+
+                            }
+
+                          },
                           icon: Icon(Icons.arrow_forward),),)
                       ],
                     ),
