@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:videostreaming_app/register.dart';
+//import 'package:videostreaming_app/register.dart';
 import 'package:videostreaming_app/userHomePage.dart';
 
 class MyLogin extends StatefulWidget {
@@ -10,8 +10,8 @@ class MyLogin extends StatefulWidget {
 }
 class _MyLoginState extends State<MyLogin> {
 
-  String userMail = 'kuntal123@gmail.com';
-  String passWord = 'myPassword';
+  String userMail = 'kuntal123@gmail.com';//here it is the fixed defined user mail id
+  String passWord = 'myPassword';// mail password.
 
 
   TextEditingController _email = TextEditingController();
@@ -33,9 +33,14 @@ class _MyLoginState extends State<MyLogin> {
               padding: EdgeInsets.only(right: MediaQuery.of(context).size.height*0.25, top: MediaQuery.of(context).size.height*0.1),
               child: Image.asset('assets/logo1.png', height: 200, width: 300,),
             ),
-            SingleChildScrollView(
+
+
+            Form(child: SingleChildScrollView(
+
               child: Container(
                 padding: EdgeInsets.only(right: 35, left: 35, top: MediaQuery.of(context).size.height*0.45),
+
+
                 child: Column(
                   children: [
                     TextField(
@@ -74,7 +79,7 @@ class _MyLoginState extends State<MyLogin> {
                             var loginPass = _password.text;
 
                             if(loginEmail == userMail && loginPass == passWord){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>userHomePage()));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>homeScreen()));
                             }else{
 
                               final snackBar = SnackBar(
@@ -103,7 +108,7 @@ class _MyLoginState extends State<MyLogin> {
                   ],
                 ),
               ),
-            )
+            ),)
           ],
             ),
       ),
