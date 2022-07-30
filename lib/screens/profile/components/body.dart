@@ -11,6 +11,7 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ProfilePic(),
           SizedBox(height: 20),
