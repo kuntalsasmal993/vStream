@@ -10,6 +10,9 @@ class MyRegister extends StatefulWidget {
 
 class _MyRegisterState extends State<MyRegister> {
 
+  final formkey1 = GlobalKey<FormState>();
+
+
   TextEditingController email = TextEditingController();
   TextEditingController phoneNo = TextEditingController();
   TextEditingController name = TextEditingController();
@@ -31,12 +34,16 @@ class _MyRegisterState extends State<MyRegister> {
               padding: EdgeInsets.only(left: 20,right: 100 ,top: MediaQuery.of(context).size.height*0.15),
               child: Text('CREATE ACCOUNT', style: TextStyle(color: Colors.white, fontSize: 33, fontWeight: FontWeight.w500),),
             ),
-            SingleChildScrollView(
+           Form(
+               key: formkey1,
+               child: SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(right: 35, left: 35, top: MediaQuery.of(context).size.height*0.36),
                 child: Column(
                   children: [
-                    TextField(
+
+
+                    TextFormField(//text field for name
                       controller: name,
                       decoration: InputDecoration(
                           fillColor: Colors.transparent,
@@ -50,11 +57,18 @@ class _MyRegisterState extends State<MyRegister> {
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(10))),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Field cannot be empty';
+                        }else{return null;}
+                      },
                     ),
                     SizedBox(
                       height: 30,
                     ),
-                    TextField(
+
+
+                    TextFormField(//text field for phone number
                       controller: phoneNo,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
@@ -69,11 +83,18 @@ class _MyRegisterState extends State<MyRegister> {
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(10))),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Field cannot be empty';
+                        }else{return null;}
+                      },
                     ),
                     SizedBox(
                       height: 30,
                     ),
-                    TextField(
+
+
+                    TextFormField(//text field for mail
                       controller: email,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -88,11 +109,18 @@ class _MyRegisterState extends State<MyRegister> {
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(10))),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Field cannot be empty';
+                        }else{return null;}
+                      },
                     ),
                     SizedBox(
                       height: 30,
                     ),
-                    TextField(
+
+
+                    TextFormField(//text field for password
                       controller: pass,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -108,6 +136,11 @@ class _MyRegisterState extends State<MyRegister> {
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                               borderRadius: BorderRadius.circular(10))),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Field cannot be empty';
+                        }else{return null;}
+                      },
                     ),
                     SizedBox(
                       height: 40,
@@ -123,15 +156,16 @@ class _MyRegisterState extends State<MyRegister> {
                             var userNumber = phoneNo.text;
                             var userName = name.text;
                             var userPassword = pass.text;
+
+                            if(formkey1.currentState!.validate()){
                             final snackBar = SnackBar(
                               content: const Text('REGISTRATION COMPLETED')
                             );
-
-                            // Find the ScaffoldMessenger in the widget tree
-                            // and use it to show a SnackBar.
-                            //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyLogin()));
                             ScaffoldMessenger.of(context).showSnackBar(snackBar);
                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyLogin()));
+
+                            }
+
 
                           },
                             icon: Icon(Icons.arrow_forward),),)
@@ -151,7 +185,7 @@ class _MyRegisterState extends State<MyRegister> {
                   ],
                 ),
               ),
-            )
+            ))
           ],
         ),
       ),

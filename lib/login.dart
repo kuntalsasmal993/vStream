@@ -9,6 +9,7 @@ class MyLogin extends StatefulWidget {
   _MyLoginState createState() => _MyLoginState();
 }
 class _MyLoginState extends State<MyLogin> {
+  final formkey = GlobalKey<FormState>();
 
   String userMail = 'kuntal123@gmail.com';//here it is the fixed defined user mail id
   String passWord = 'myPassword';// mail password.
@@ -35,7 +36,9 @@ class _MyLoginState extends State<MyLogin> {
             ),
 
 
-            Form(child: SingleChildScrollView(
+            Form(
+              key: formkey,
+              child: SingleChildScrollView(
 
               child: Container(
                 padding: EdgeInsets.only(right: 35, left: 35, top: MediaQuery.of(context).size.height*0.45),
@@ -43,7 +46,7 @@ class _MyLoginState extends State<MyLogin> {
 
                 child: Column(
                   children: [
-                    TextField(
+                    TextFormField(
                       controller: _email,
                       decoration: InputDecoration(
                         fillColor: Colors.grey.shade100,
@@ -51,11 +54,16 @@ class _MyLoginState extends State<MyLogin> {
                         labelText: 'EMAIL',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Field cannot be empty';
+                        }else{return null;}
+                      },
                     ),
                     SizedBox(
                       height: 30,
                     ),
-                    TextField(
+                    TextFormField(
                       controller: _password,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -64,6 +72,13 @@ class _MyLoginState extends State<MyLogin> {
                           labelText: 'PASSWORD',
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
+                            validator: (value){
+                        if(value!.isEmpty){
+                          return 'Must be filled';
+                        }else{
+                          return null;
+                        }
+                            },
                     ),
                     SizedBox(
                       height: 40,
@@ -77,6 +92,12 @@ class _MyLoginState extends State<MyLogin> {
                           child: IconButton(color: Colors.white, onPressed: (){
                             var loginEmail = _email.text;
                             var loginPass = _password.text;
+
+                            if(formkey.currentState!.validate()){
+                              final snackBar = SnackBar(
+                                  content: const Text('REGISTRATION COMPLETED')
+                              );
+                              ScaffoldMessenger.of(context).showSnackBar(snackBar);}
 
                             if(loginEmail == userMail && loginPass == passWord){
                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>homeScreen()));
