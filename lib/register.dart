@@ -92,6 +92,22 @@ class _MyRegisterState extends State<MyRegister> {
                             icon: Icon(Icons.arrow_forward),),)
                       ],
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Test', style: TextStyle(color:Colors.white, fontSize: 27, fontWeight: FontWeight.w700),),
+                        SizedBox(width: 20,),
+                        CircleAvatar(radius: 30, backgroundColor: Color(0xff4c505b),
+                          child: IconButton(color: Colors.white,
+                            onPressed: (){
+                            Navigator.pushNamed(context, 'someh');
+                            },
+                            icon: Icon(Icons.arrow_forward),),)
+                      ],
+                    ),
                     // SizedBox(
                     //   height: 10,
                     // ),

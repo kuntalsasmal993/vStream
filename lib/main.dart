@@ -1,8 +1,11 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:videostreaming_app/home.dart';
 import 'package:videostreaming_app/login.dart';
 import 'package:videostreaming_app/register.dart';
+import 'package:videostreaming_app/someh.dart';
 //import 'package:videostreaming_app/splashscreen.dart';
+import 'package:videostreaming_app/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +29,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes:{
         'login': (context)=>MyLogin(),
-        'register': (context)=>MyRegister()
+        'register': (context)=>MyRegister(),
+        'someh': (context)=>Myapp(),
       },);
   }
 }
