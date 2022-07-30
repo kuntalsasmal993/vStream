@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:videostreaming_app/login.dart';
+import 'package:videostreaming_app/mainScreen.dart';
 import 'package:videostreaming_app/register.dart';
 //import 'package:videostreaming_app/splashscreen.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           splashTransition: SplashTransition.fadeTransition,
           backgroundColor: Colors.black,
 
-          nextScreen: MyLogin()),
+          nextScreen: homeScreen()),
 
       debugShowCheckedModeBanner: false,
       routes:{
