@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'profile_menu.dart';
 import 'profile_pic.dart';
-
-
+import 'edit_profile.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -18,17 +17,26 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "My Account",
             icon: "assets/icons/User Icon.svg",
-            press: () => {},
+            press: () {
+            Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => EditProfilePage()));
+            },
           ),
           ProfileMenu(
             text: "Notifications",
             icon: "assets/icons/Bell.svg",
-            press: () {},
+            press: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => Notifications()));
+            },
           ),
           ProfileMenu(
             text: "Settings",
             icon: "assets/icons/Settings.svg",
-            press: () {},
+            press: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => Settings()));
+            },
           ),
           ProfileMenu(
             text: "Log Out",
