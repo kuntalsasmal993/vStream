@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'body.dart';
+import 'package:profile/screens/profile/profile_screen.dart';
 
 class EditProfilePage extends StatelessWidget {
 
@@ -40,7 +41,7 @@ class EditProfilePage extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Body()));
+                builder: (BuildContext context) => ProfileScreen()));
           },
         ),
       ),
@@ -180,7 +181,7 @@ class Notifications extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Body()));
+                builder: (BuildContext context) => ProfileScreen()));
           },
         ),
         title: Text("Notification"),
@@ -210,7 +211,7 @@ class Settings extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Body()));
+                builder: (BuildContext context) => ProfileScreen()));
           },
         ),
         title: Text("Settings"),
