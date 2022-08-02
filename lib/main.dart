@@ -1,11 +1,12 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:videostreaming_app/home.dart';
+// import 'package:videostreaming_app/video_player.dart';
 import 'package:videostreaming_app/login.dart';
+// import 'package:videostreaming_app/pages/video_player.dart';
 import 'package:videostreaming_app/register.dart';
-import 'package:videostreaming_app/someh.dart';
+import 'package:videostreaming_app/test_page.dart';
 //import 'package:videostreaming_app/splashscreen.dart';
-import 'package:videostreaming_app/home.dart';
+// import 'package:videostreaming_app/video_player.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,13 +25,13 @@ class MyApp extends StatelessWidget {
           splashTransition: SplashTransition.fadeTransition,
           backgroundColor: Colors.black,
 
-          nextScreen: MyLogin()),
+          nextScreen: const MyLogin()),
 
       debugShowCheckedModeBanner: false,
       routes:{
-        'login': (context)=>MyLogin(),
-        'register': (context)=>MyRegister(),
-        'someh': (context)=>Myapp(),
+        'login': (context)=> const MyLogin(),
+        'register': (context)=> const MyRegister(),
+        'someh': (context)=> const Myapp(),
       },);
   }
 }

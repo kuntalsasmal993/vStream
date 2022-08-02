@@ -12,15 +12,15 @@ class videoplayer extends StatefulWidget {
 }
 
 class _videoplayerState extends State<videoplayer> {
-  late YoutubePlayerController _controller;
+  late YoutubePlayerController controller;
 
   @override
   void initState() {
-    _controller = YoutubePlayerController(
+    controller = YoutubePlayerController(
         initialVideoId:
-            YoutubePlayerController.convertUrlToId(widget.youtubeURL!)!,
+        YoutubePlayerController.convertUrlToId(widget.youtubeURL!)!,
         params: const YoutubePlayerParams(
-          loop: false,
+
           color: 'trasparent',
           desktopMode: false,
           strictRelatedVideos: true,
@@ -39,11 +39,11 @@ class _videoplayerState extends State<videoplayer> {
         children: [
 
           SizedBox(
-             height: kIsWeb ? screensize.height/1.13 : screensize.height/2,
+            height: kIsWeb? screensize.height/2 : screensize.height/3,
             // height: 200,
             width: screensize.width,
             child: YoutubePlayerIFrame(
-              controller: _controller,
+              controller: controller,
 
             ),
           ),
