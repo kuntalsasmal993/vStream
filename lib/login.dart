@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:videostreaming_app/register.dart';
-import 'package:videostreaming_app/userHomePage.dart';
+//import 'package:videostreaming_app/userHomePage.dart';
+import 'package:videostreaming_app/screens/home_screen.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -95,12 +96,12 @@ class _MyLoginState extends State<MyLogin> {
 
                             if(formkey.currentState!.validate()){
                               final snackBar = SnackBar(
-                                  content: const Text('REGISTRATION COMPLETED')
+                                  content: const Text('ENTER CORRECT DETAILS')
                               );
                               ScaffoldMessenger.of(context).showSnackBar(snackBar);}
 
                             if(loginEmail == userMail && loginPass == passWord){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>homeScreen()));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                             }else{
 
                               final snackBar = SnackBar(

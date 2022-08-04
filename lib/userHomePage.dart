@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:videostreaming_app/home.dart';
 import 'package:videostreaming_app/profile.dart';
+
 class homeScreen extends StatefulWidget {
   const homeScreen({Key? key}) : super(key: key);
 
