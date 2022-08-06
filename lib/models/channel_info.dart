@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final channelInfo = channelInfoFromJson(jsonString);
-
 import 'dart:convert';
 
 ChannelInfo channelInfoFromJson(String str) => ChannelInfo.fromJson(json.decode(str));
@@ -13,7 +9,7 @@ class ChannelInfo {
     required this.kind,
     required this.etag,
     required this.pageInfo,
-   required this.items,
+    required this.items,
   });
 
   String kind;
@@ -38,7 +34,7 @@ class ChannelInfo {
 
 class Item {
   Item({
-   required this.kind,
+    required this.kind,
     required this.etag,
     required this.id,
     required this.snippet,

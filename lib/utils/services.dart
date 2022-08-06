@@ -11,6 +11,7 @@ class services{
   static const _baseUrl = 'www.youtube.googleapis.com';
 
   static Future<ChannelInfo> getChannelInfo() async{
+
     Map<String,String> parameters = {
       'part':'snippet,contentDetails,statistics',
       'id':CHANNEL_ID,

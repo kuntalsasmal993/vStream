@@ -1,3 +1,6 @@
+
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:videostreaming_app/models/channel_info.dart';
@@ -11,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  //
+
   late ChannelInfo _channelInfo;
   late Item _item;
   late bool _loading;
@@ -31,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _buildInfoView(){
+
     return _loading ? CircularProgressIndicator():
     Container(
       child: Card(
@@ -42,8 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(width: 20),
-            Text(_item.snippet.title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),
+            Expanded(
+            child:Text(_item.snippet.title,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),),
             Text(_item.statistics.videoCount),
             SizedBox(width: 20),
 
@@ -71,3 +76,4 @@ class _HomeScreenState extends State<HomeScreen> {
 
   }
 }
+
