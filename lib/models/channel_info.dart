@@ -1,3 +1,7 @@
+// To parse required this JSON data, do
+//
+//     final channelInfo = channelInfoFromJson(jsonString);
+
 import 'dart:convert';
 
 ChannelInfo channelInfoFromJson(String str) => ChannelInfo.fromJson(json.decode(str));
@@ -40,6 +44,7 @@ class Item {
     required this.snippet,
     required this.contentDetails,
     required this.statistics,
+    required this.status,
   });
 
   String kind;
@@ -48,6 +53,7 @@ class Item {
   Snippet snippet;
   ContentDetails contentDetails;
   Statistics statistics;
+  Status status;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
     kind: json["kind"],
@@ -56,6 +62,7 @@ class Item {
     snippet: Snippet.fromJson(json["snippet"]),
     contentDetails: ContentDetails.fromJson(json["contentDetails"]),
     statistics: Statistics.fromJson(json["statistics"]),
+    status: Status.fromJson(json["status"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -65,6 +72,7 @@ class Item {
     "snippet": snippet.toJson(),
     "contentDetails": contentDetails.toJson(),
     "statistics": statistics.toJson(),
+    "status": status.toJson(),
   };
 }
 
@@ -229,6 +237,30 @@ class Statistics {
     "subscriberCount": subscriberCount,
     "hiddenSubscriberCount": hiddenSubscriberCount,
     "videoCount": videoCount,
+  };
+}
+
+class Status {
+  Status({
+    required this.privacyStatus,
+    required this.isLinked,
+    required this.longUploadsStatus,
+  });
+
+  String privacyStatus;
+  bool isLinked;
+  String longUploadsStatus;
+
+  factory Status.fromJson(Map<String, dynamic> json) => Status(
+    privacyStatus: json["privacyStatus"],
+    isLinked: json["isLinked"],
+    longUploadsStatus: json["longUploadsStatus"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "privacyStatus": privacyStatus,
+    "isLinked": isLinked,
+    "longUploadsStatus": longUploadsStatus,
   };
 }
 

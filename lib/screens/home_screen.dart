@@ -1,6 +1,3 @@
-
-import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:videostreaming_app/models/channel_info.dart';
@@ -47,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(width: 20),
             Expanded(
-            child:Text(_item.snippet.title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),),
+              child:Text(_item.snippet.title,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),),
             Text(_item.statistics.videoCount),
             SizedBox(width: 20),
 
@@ -76,4 +73,3 @@ class _HomeScreenState extends State<HomeScreen> {
 
   }
 }
-
