@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:videostreaming_app/models/channel_info.dart';
+import 'package:videostreaming_app/models/channel_info_data_model.dart';
 import 'package:videostreaming_app/utils/services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,8 +12,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  late ChannelInfo _channelInfo;
-  late Item _item;
+  late ChannelInfoDataModel _channelInfo;
+  late Items _item;
   late bool _loading;
 
   @override
@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   _getChannelInfo()async{
     _channelInfo = await services.getChannelInfo();
-    _item = _channelInfo.items[0];
+    _item = _channelInfo.items![0];
     setState((){
       _loading = false;
     });
@@ -39,14 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
           children:[
             CircleAvatar(
               backgroundImage: CachedNetworkImageProvider(
-                _item.snippet.thumbnails.medium.url,
+                _item.snippet!.thumbnails!.medium!.url!,
               ),
             ),
             SizedBox(width: 20),
             Expanded(
-              child:Text(_item.snippet.title,
+              child:Text(_item.snippet!.title!,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),),),
-            Text(_item.statistics.videoCount),
+            Text(_item.statistics!.videoCount!),
             SizedBox(width: 20),
 
           ],

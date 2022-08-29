@@ -21,7 +21,7 @@ class homePageState extends State<homePage>{
                 borderRadius: BorderRadius.all(Radius.circular(10.0)
                 ),
                 child: Stack(
-                  children: <Widget>[
+                  children: <Widget>[z
                     Image.network('',height: 150,width: 200,fit: BoxFit.fitWidth,),
                     Container(
                       margin: EdgeInsets.only(top: 155, left: 5),
