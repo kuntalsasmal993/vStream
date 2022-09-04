@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:videostreaming_app/models/channel_info_data_model.dart';
+import 'package:videostreaming_app/models/channel_model.dart';
 import 'package:videostreaming_app/utils/services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  late ChannelInfoDataModel _channelInfo;
+  late ChannelModel _channelInfo;
   late Items _item;
   late bool _loading;
 

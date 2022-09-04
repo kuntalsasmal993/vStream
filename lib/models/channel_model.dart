@@ -1,17 +1,17 @@
 /// kind : "youtube#channelListResponse"
-/// etag : "N4WWEzU3NgoBo4rU3Md1c-xPjEE"
+/// etag : "6eV17xbODLQCVGCsfknDNRePoj0"
 /// pageInfo : {"totalResults":1,"resultsPerPage":5}
-/// items : [{"kind":"youtube#channel","etag":"Hv75b4Y71W-6mBk5y-ymkptESCY","id":"UC6oGd7zMO2v7BXeWzDXwOsA","snippet":{"title":"VStream","description":"","publishedAt":"2022-08-03T08:49:44.180743Z","thumbnails":{"default":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88},"medium":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240},"high":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}},"localized":{"title":"VStream","description":""}},"contentDetails":{"relatedPlaylists":{"likes":"","uploads":"UU6oGd7zMO2v7BXeWzDXwOsA"}},"statistics":{"viewCount":"425","subscriberCount":"1","hiddenSubscriberCount":false,"videoCount":"2"}}]
+/// items : [{"kind":"youtube#channel","etag":"BkF62uMhhTmHtD6Tw-_-Dsm8SqQ","id":"UC0zHs1JGEyqZKprMojNRQrg","snippet":{"title":"Kuntal Gaming","description":"Hello, welcome you in about section. Here you will get gameplays of different games. Don't forget to subscribe.","publishedAt":"2020-10-28T13:14:08.263624Z","thumbnails":{"default":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88},"medium":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240},"high":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}},"localized":{"title":"Kuntal Gaming","description":"Hello, welcome you in about section. Here you will get gameplays of different games. Don't forget to subscribe."},"country":"IN"},"contentDetails":{"relatedPlaylists":{"likes":"","uploads":"UU0zHs1JGEyqZKprMojNRQrg"}},"statistics":{"viewCount":"471","subscriberCount":"47","hiddenSubscriberCount":false,"videoCount":"19"},"status":{"privacyStatus":"public","isLinked":true,"longUploadsStatus":"longUploadsUnspecified","madeForKids":false}}]
 
-class ChannelInfoDataModel {
-  ChannelInfoDataModel({
-      // this.kind,
-      this.etag,
-      this.pageInfo,
+class ChannelModel {
+  ChannelModel({
+      this.kind, 
+      this.etag, 
+      this.pageInfo, 
       this.items,});
 
-  ChannelInfoDataModel.fromJson(dynamic json) {
-    // kind = json['kind'];
+  ChannelModel.fromJson(dynamic json) {
+    kind = json['kind'];
     etag = json['etag'];
     pageInfo = json['pageInfo'] != null ? PageInfo.fromJson(json['pageInfo']) : null;
     if (json['items'] != null) {
@@ -21,22 +21,22 @@ class ChannelInfoDataModel {
       });
     }
   }
-  // String? kind;
+  String? kind;
   String? etag;
   PageInfo? pageInfo;
   List<Items>? items;
-ChannelInfoDataModel copyWith({  String? kind,
+ChannelModel copyWith({  String? kind,
   String? etag,
   PageInfo? pageInfo,
   List<Items>? items,
-}) => ChannelInfoDataModel(
+}) => ChannelModel(  kind: kind ?? this.kind,
   etag: etag ?? this.etag,
   pageInfo: pageInfo ?? this.pageInfo,
   items: items ?? this.items,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    // map['kind'] = kind;
+    map['kind'] = kind;
     map['etag'] = etag;
     if (pageInfo != null) {
       map['pageInfo'] = pageInfo?.toJson();
@@ -50,51 +50,57 @@ ChannelInfoDataModel copyWith({  String? kind,
 }
 
 /// kind : "youtube#channel"
-/// etag : "Hv75b4Y71W-6mBk5y-ymkptESCY"
-/// id : "UC6oGd7zMO2v7BXeWzDXwOsA"
-/// snippet : {"title":"VStream","description":"","publishedAt":"2022-08-03T08:49:44.180743Z","thumbnails":{"default":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88},"medium":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240},"high":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}},"localized":{"title":"VStream","description":""}}
-/// contentDetails : {"relatedPlaylists":{"likes":"","uploads":"UU6oGd7zMO2v7BXeWzDXwOsA"}}
-/// statistics : {"viewCount":"425","subscriberCount":"1","hiddenSubscriberCount":false,"videoCount":"2"}
+/// etag : "BkF62uMhhTmHtD6Tw-_-Dsm8SqQ"
+/// id : "UC0zHs1JGEyqZKprMojNRQrg"
+/// snippet : {"title":"Kuntal Gaming","description":"Hello, welcome you in about section. Here you will get gameplays of different games. Don't forget to subscribe.","publishedAt":"2020-10-28T13:14:08.263624Z","thumbnails":{"default":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88},"medium":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240},"high":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}},"localized":{"title":"Kuntal Gaming","description":"Hello, welcome you in about section. Here you will get gameplays of different games. Don't forget to subscribe."},"country":"IN"}
+/// contentDetails : {"relatedPlaylists":{"likes":"","uploads":"UU0zHs1JGEyqZKprMojNRQrg"}}
+/// statistics : {"viewCount":"471","subscriberCount":"47","hiddenSubscriberCount":false,"videoCount":"19"}
+/// status : {"privacyStatus":"public","isLinked":true,"longUploadsStatus":"longUploadsUnspecified","madeForKids":false}
 
 class Items {
   Items({
-      // this.kind,
-      this.etag,
-      this.id,
-      this.snippet,
-      this.contentDetails,
-      this.statistics,});
+      this.kind, 
+      this.etag, 
+      this.id, 
+      this.snippet, 
+      this.contentDetails, 
+      this.statistics, 
+      this.status,});
 
   Items.fromJson(dynamic json) {
-    // kind = json['kind'];
+    kind = json['kind'];
     etag = json['etag'];
     id = json['id'];
     snippet = json['snippet'] != null ? Snippet.fromJson(json['snippet']) : null;
     contentDetails = json['contentDetails'] != null ? ContentDetails.fromJson(json['contentDetails']) : null;
     statistics = json['statistics'] != null ? Statistics.fromJson(json['statistics']) : null;
+    status = json['status'] != null ? Status.fromJson(json['status']) : null;
   }
-  // String? kind;
+  String? kind;
   String? etag;
   String? id;
   Snippet? snippet;
   ContentDetails? contentDetails;
   Statistics? statistics;
-Items copyWith({
+  Status? status;
+Items copyWith({  String? kind,
   String? etag,
   String? id,
   Snippet? snippet,
   ContentDetails? contentDetails,
   Statistics? statistics,
-}) => Items(
+  Status? status,
+}) => Items(  kind: kind ?? this.kind,
   etag: etag ?? this.etag,
   id: id ?? this.id,
   snippet: snippet ?? this.snippet,
   contentDetails: contentDetails ?? this.contentDetails,
   statistics: statistics ?? this.statistics,
+  status: status ?? this.status,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    // map['kind'] = kind;
+    map['kind'] = kind;
     map['etag'] = etag;
     map['id'] = id;
     if (snippet != null) {
@@ -106,21 +112,66 @@ Items copyWith({
     if (statistics != null) {
       map['statistics'] = statistics?.toJson();
     }
+    if (status != null) {
+      map['status'] = status?.toJson();
+    }
     return map;
   }
 
 }
 
-/// viewCount : "425"
-/// subscriberCount : "1"
+/// privacyStatus : "public"
+/// isLinked : true
+/// longUploadsStatus : "longUploadsUnspecified"
+/// madeForKids : false
+
+class Status {
+  Status({
+      this.privacyStatus, 
+      this.isLinked, 
+      this.longUploadsStatus, 
+      this.madeForKids,});
+
+  Status.fromJson(dynamic json) {
+    privacyStatus = json['privacyStatus'];
+    isLinked = json['isLinked'];
+    longUploadsStatus = json['longUploadsStatus'];
+    madeForKids = json['madeForKids'];
+  }
+  String? privacyStatus;
+  bool? isLinked;
+  String? longUploadsStatus;
+  bool? madeForKids;
+Status copyWith({  String? privacyStatus,
+  bool? isLinked,
+  String? longUploadsStatus,
+  bool? madeForKids,
+}) => Status(  privacyStatus: privacyStatus ?? this.privacyStatus,
+  isLinked: isLinked ?? this.isLinked,
+  longUploadsStatus: longUploadsStatus ?? this.longUploadsStatus,
+  madeForKids: madeForKids ?? this.madeForKids,
+);
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['privacyStatus'] = privacyStatus;
+    map['isLinked'] = isLinked;
+    map['longUploadsStatus'] = longUploadsStatus;
+    map['madeForKids'] = madeForKids;
+    return map;
+  }
+
+}
+
+/// viewCount : "471"
+/// subscriberCount : "47"
 /// hiddenSubscriberCount : false
-/// videoCount : "2"
+/// videoCount : "19"
 
 class Statistics {
   Statistics({
-      this.viewCount,
-      this.subscriberCount,
-      this.hiddenSubscriberCount,
+      this.viewCount, 
+      this.subscriberCount, 
+      this.hiddenSubscriberCount, 
       this.videoCount,});
 
   Statistics.fromJson(dynamic json) {
@@ -153,7 +204,7 @@ Statistics copyWith({  String? viewCount,
 
 }
 
-/// relatedPlaylists : {"likes":"","uploads":"UU6oGd7zMO2v7BXeWzDXwOsA"}
+/// relatedPlaylists : {"likes":"","uploads":"UU0zHs1JGEyqZKprMojNRQrg"}
 
 class ContentDetails {
   ContentDetails({
@@ -175,11 +226,11 @@ ContentDetails copyWith({  RelatedPlaylists? relatedPlaylists,
 }
 
 /// likes : ""
-/// uploads : "UU6oGd7zMO2v7BXeWzDXwOsA"
+/// uploads : "UU0zHs1JGEyqZKprMojNRQrg"
 
 class RelatedPlaylists {
   RelatedPlaylists({
-      this.likes,
+      this.likes, 
       this.uploads,});
 
   RelatedPlaylists.fromJson(dynamic json) {
@@ -202,19 +253,21 @@ RelatedPlaylists copyWith({  String? likes,
 
 }
 
-/// title : "VStream"
-/// description : ""
-/// publishedAt : "2022-08-03T08:49:44.180743Z"
-/// thumbnails : {"default":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88},"medium":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240},"high":{"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}}
-/// localized : {"title":"VStream","description":""}
+/// title : "Kuntal Gaming"
+/// description : "Hello, welcome you in about section. Here you will get gameplays of different games. Don't forget to subscribe."
+/// publishedAt : "2020-10-28T13:14:08.263624Z"
+/// thumbnails : {"default":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88},"medium":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240},"high":{"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}}
+/// localized : {"title":"Kuntal Gaming","description":"Hello, welcome you in about section. Here you will get gameplays of different games. Don't forget to subscribe."}
+/// country : "IN"
 
 class Snippet {
   Snippet({
-      this.title,
-      this.description,
-      this.publishedAt,
-      this.thumbnails,
-      this.localized,});
+      this.title, 
+      this.description, 
+      this.publishedAt, 
+      this.thumbnails, 
+      this.localized, 
+      this.country,});
 
   Snippet.fromJson(dynamic json) {
     title = json['title'];
@@ -222,22 +275,26 @@ class Snippet {
     publishedAt = json['publishedAt'];
     thumbnails = json['thumbnails'] != null ? Thumbnails.fromJson(json['thumbnails']) : null;
     localized = json['localized'] != null ? Localized.fromJson(json['localized']) : null;
+    country = json['country'];
   }
   String? title;
   String? description;
   String? publishedAt;
   Thumbnails? thumbnails;
   Localized? localized;
+  String? country;
 Snippet copyWith({  String? title,
   String? description,
   String? publishedAt,
   Thumbnails? thumbnails,
   Localized? localized,
+  String? country,
 }) => Snippet(  title: title ?? this.title,
   description: description ?? this.description,
   publishedAt: publishedAt ?? this.publishedAt,
   thumbnails: thumbnails ?? this.thumbnails,
   localized: localized ?? this.localized,
+  country: country ?? this.country,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -250,17 +307,18 @@ Snippet copyWith({  String? title,
     if (localized != null) {
       map['localized'] = localized?.toJson();
     }
+    map['country'] = country;
     return map;
   }
 
 }
 
-/// title : "VStream"
-/// description : ""
+/// title : "Kuntal Gaming"
+/// description : "Hello, welcome you in about section. Here you will get gameplays of different games. Don't forget to subscribe."
 
 class Localized {
   Localized({
-      this.title,
+      this.title, 
       this.description,});
 
   Localized.fromJson(dynamic json) {
@@ -283,35 +341,35 @@ Localized copyWith({  String? title,
 
 }
 
-/// default : {"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88}
-/// medium : {"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240}
-/// high : {"url":"https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}
+/// default : {"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s88-c-k-c0x00ffffff-no-rj","width":88,"height":88}
+/// medium : {"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s240-c-k-c0x00ffffff-no-rj","width":240,"height":240}
+/// high : {"url":"https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s800-c-k-c0x00ffffff-no-rj","width":800,"height":800}
 
 class Thumbnails {
   Thumbnails({
-      this.defaultValue,
-      this.medium,
+      this.defaultThumb,
+      this.medium, 
       this.high,});
 
   Thumbnails.fromJson(dynamic json) {
-    defaultValue = json['default'] != null ? Default.fromJson(json['default']) : null;
+    defaultThumb = json['default'] != null ? DefaultThumb.fromJson(json['default']) : null;
     medium = json['medium'] != null ? Medium.fromJson(json['medium']) : null;
     high = json['high'] != null ? High.fromJson(json['high']) : null;
   }
-  Default? defaultValue;
+  DefaultThumb? defaultThumb;
   Medium? medium;
   High? high;
-Thumbnails copyWith({  Default? defaultValue,
+/*Thumbnails copyWith({  DefaultThumb? default,
   Medium? medium,
   High? high,
-}) => Thumbnails(  defaultValue: defaultValue ?? this.defaultValue,
+}) => Thumbnails(  defaultThumb: defaultThumb ?? this.defaultThumb,
   medium: medium ?? this.medium,
   high: high ?? this.high,
-);
+);*/
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    if (defaultValue != null) {
-      map['default'] = defaultValue?.toJson();
+    if (defaultThumb != null) {
+      map['default'] = defaultThumb?.toJson();
     }
     if (medium != null) {
       map['medium'] = medium?.toJson();
@@ -324,14 +382,14 @@ Thumbnails copyWith({  Default? defaultValue,
 
 }
 
-/// url : "https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s800-c-k-c0x00ffffff-no-rj"
+/// url : "https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s800-c-k-c0x00ffffff-no-rj"
 /// width : 800
 /// height : 800
 
 class High {
   High({
-      this.url,
-      this.width,
+      this.url, 
+      this.width, 
       this.height,});
 
   High.fromJson(dynamic json) {
@@ -359,14 +417,14 @@ High copyWith({  String? url,
 
 }
 
-/// url : "https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s240-c-k-c0x00ffffff-no-rj"
+/// url : "https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s240-c-k-c0x00ffffff-no-rj"
 /// width : 240
 /// height : 240
 
 class Medium {
   Medium({
-      this.url,
-      this.width,
+      this.url, 
+      this.width, 
       this.height,});
 
   Medium.fromJson(dynamic json) {
@@ -394,17 +452,17 @@ Medium copyWith({  String? url,
 
 }
 
-/// url : "https://yt3.ggpht.com/ytc/AMLnZu_qfVqGjkr3ZFtqev6XK-xtm4RW2aw1Hgdj6xexwXcqrGV20BuE-f9fFw33tREi=s88-c-k-c0x00ffffff-no-rj"
+/// url : "https://yt3.ggpht.com/PL6_dV8t_hDnxYb1O6hDbgdi5WswVOmVgdL-RHip4utxiILgvwFI5Q4FNJ_BB4M85L6nYFBR2Q=s88-c-k-c0x00ffffff-no-rj"
 /// width : 88
 /// height : 88
 
-class Default {
-  Default({
-      this.url,
-      this.width,
+class DefaultThumb {
+  DefaultThumb({
+      this.url, 
+      this.width, 
       this.height,});
 
-  Default.fromJson(dynamic json) {
+  DefaultThumb.fromJson(dynamic json) {
     url = json['url'];
     width = json['width'];
     height = json['height'];
@@ -412,10 +470,10 @@ class Default {
   String? url;
   int? width;
   int? height;
-Default copyWith({  String? url,
+  DefaultThumb copyWith({  String? url,
   int? width,
   int? height,
-}) => Default(  url: url ?? this.url,
+}) => DefaultThumb(  url: url ?? this.url,
   width: width ?? this.width,
   height: height ?? this.height,
 );
@@ -434,7 +492,7 @@ Default copyWith({  String? url,
 
 class PageInfo {
   PageInfo({
-      this.totalResults,
+      this.totalResults, 
       this.resultsPerPage,});
 
   PageInfo.fromJson(dynamic json) {
@@ -456,4 +514,3 @@ PageInfo copyWith({  int? totalResults,
   }
 
 }
-
